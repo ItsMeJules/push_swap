@@ -1,0 +1,6 @@
+push_swap
+libft/obj*
+obj/*
+*.swp
+libft.a
+obj/*
