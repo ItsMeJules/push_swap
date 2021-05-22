@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:24:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/21 16:51:08 by jpeyron          ###   ########.fr       */
+/*   Updated: 2021/05/22 14:23:31 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,9 @@ typedef struct s_selem
 ** utils.c
 */
 void	quit_prgm();
-t_selem	*get_val(t_list *elem);
+t_selem	*get_val(t_list *elem, int clone);
 void	print_stack(t_list *stack);
+void	print_op(char *op, char id);
 
 /*
 ** initializer.c
@@ -54,6 +55,8 @@ t_swap	*init_swap(int ac, char **av);
 */
 int	swap_stack(t_stack *stack);
 int	push_stack(t_swap *swap, t_stack *from_stack);
+int	rotate_stack(t_stack *stack);
+int	rev_rotate_stack(t_stack *stack);
 
 
 #endif
