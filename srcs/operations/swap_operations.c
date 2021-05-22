@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:57:10 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/22 14:23:12 by jules            ###   ########.fr       */
+/*   Updated: 2021/05/22 21:16:55 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int	rev_rotate_stack(t_stack *stack)
 		return (0);
 	last = ft_lstlast(stack->list);
 	new = ft_lstnew(get_val(last, 1));
-	ft_lstat(stack->list, stack->size - 1)->next = NULL;
+	ft_lstdelone(last, free);
+	ft_lstat(stack->list, stack->size - 2)->next = NULL;
 	ft_lstadd_front(&stack->list, new);
 	print_op("rr", stack->id);
 	print_stack(stack->list);
