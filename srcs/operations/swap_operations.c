@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:57:10 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/22 21:16:55 by jules            ###   ########.fr       */
+/*   Updated: 2021/05/24 16:12:34 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	push_stack(t_swap *swap, t_stack *from_stack)
 	ft_lstadd_front(&to_stack->list, ft_lstnew(get_val(from_stack->list, 1)));
 	from_stack->list = from_stack->list->next;
 	ft_lstdelone(tmp, free);
+	from_stack->size--;
+	to_stack->size++;
 	print_op("p", to_stack->id);
 	print_stack(to_stack->list);
 	return (1);
