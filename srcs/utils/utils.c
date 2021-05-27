@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:36:46 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/22 14:23:18 by jules            ###   ########.fr       */
+/*   Updated: 2021/05/27 16:31:46 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,21 @@ t_selem	*get_val(t_list *elem, int clone)
 	}
 }
 
-void	print_stack(t_list *stack)
+void	print_stacks(t_swap *swap)
 {
-	while (stack)
+	long	i;
+
+	i = swap->a->size;
+	if (swap->b->size > i)
+		i = swap->b->size;
+	while (i--)
 	{
-		ft_putnbr_fd(get_val(stack, 0)->e, 1);
+		if (i < swap->a->size)
+			ft_putnbr_fd(get_val(ft_lstat(swap->a->list, i), 0)->e, 1);
+		ft_putstr_fd(" | ", 1);
+		if (i < swap->b->size)
+			ft_putnbr_fd(get_val(ft_lstat(swap->b->list, i), 0)->e, 1);
 		ft_putchar_fd('\n', 1);
-		stack = stack->next;
 	}
 }
 

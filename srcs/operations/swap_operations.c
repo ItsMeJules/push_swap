@@ -6,13 +6,13 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:57:10 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/24 16:12:34 by jpeyron          ###   ########.fr       */
+/*   Updated: 2021/05/27 16:28:29 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pushswap.h"
 
-int	swap_stack(t_stack *stack)
+int	swap_stack(t_swap *swap, t_stack *stack)
 {
 	void	*tmp;
 
@@ -22,6 +22,7 @@ int	swap_stack(t_stack *stack)
 	stack->list->next->content = stack->list->content;
 	stack->list->content = tmp;
 	print_op("s", stack->id);
+	print_stacks(swap);
 	return (1);
 }
 
@@ -42,11 +43,11 @@ int	push_stack(t_swap *swap, t_stack *from_stack)
 	from_stack->size--;
 	to_stack->size++;
 	print_op("p", to_stack->id);
-	print_stack(to_stack->list);
+	print_stacks(swap);
 	return (1);
 }
 
-int	rotate_stack(t_stack *stack)
+int	rotate_stack(t_swap *swap, t_stack *stack)
 {
 	t_list	*new;
 
@@ -58,11 +59,11 @@ int	rotate_stack(t_stack *stack)
 	stack->list = stack->list->next;
 	ft_lstdelone(new, free);
 	print_op("r", stack->id);
-	print_stack(stack->list);
+	print_stacks(swap);
 	return (1);
 }
 
-int	rev_rotate_stack(t_stack *stack)
+int	rev_rotate_stack(t_swap *swap, t_stack *stack)
 {
 	t_list	*new;
 	t_list	*last;
@@ -75,6 +76,6 @@ int	rev_rotate_stack(t_stack *stack)
 	ft_lstat(stack->list, stack->size - 2)->next = NULL;
 	ft_lstadd_front(&stack->list, new);
 	print_op("rr", stack->id);
-	print_stack(stack->list);
+	print_stacks(swap);
 	return (1);
 }
