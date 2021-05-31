@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:57:20 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/31 15:24:46 by jules            ###   ########.fr       */
+/*   Updated: 2021/05/31 18:59:20 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	main(int ac, char **av)
 
 	swap = init_swap(ac, av);
 	choose_algorithm(swap);
-	printf("There was %d operations.", swap->nb_op);
+	ft_putstr_fd("There was ", 1);
+	ft_putnbr_fd(swap->nb_op, 1);
+	ft_putstr_fd(" operations.", 1);
 	ft_lstclear(&swap->a->list, free);
 	ft_lstclear(&swap->b->list, free);
 	free(swap->a);
