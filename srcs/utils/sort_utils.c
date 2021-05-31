@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:59:56 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/27 16:04:59 by jpeyron          ###   ########.fr       */
+/*   Updated: 2021/05/31 18:53:10 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,35 @@ int	is_sorted(t_list *list)
 		list = list->next;
 	}
 	return (1);
+}
+
+int		get_smallest(t_stack *stack)
+{
+	t_list	*list;
+	int		nb;
+
+	nb = get_val(stack->list, 0)->e;
+	list = stack->list->next;
+	while (list)
+	{
+		if (get_val(list, 0)->e < nb)
+			nb = get_val(list, 0)->e;
+		list = list->next;
+	}
+	return (nb);
+}
+
+void	move_to_first_pos(t_swap *swap, t_stack *stack, int number)
+{
+	int	index;
+	int	(*rotate_func)(t_swap *, t_stack *);
+
+	if (get_val(stack->list, 0)->e == number)
+		return ;
+	index = get_index(stack->list, number);
+	rotate_func = rotate_stack;
+	if (index <= stack->size / 2)
+		rotate_func = rev_rotate_stack;
+	while (get_val(stack->list, 0)->e != number)
+		rotate_func(swap, stack);
 }

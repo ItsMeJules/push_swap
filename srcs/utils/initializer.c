@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:29:59 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/24 15:07:01 by jpeyron          ###   ########.fr       */
+/*   Updated: 2021/05/31 15:24:24 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ t_swap	*init_swap(int ac, char **av)
 	swap->b = parse_stack(0, NULL);
 	swap->b->size = 0;
 	swap->b->id = 'b';
+	swap->nb_op = 0;
 	return (swap);
 }

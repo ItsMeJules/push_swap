@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 12:05:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/27 17:34:54 by jpeyron          ###   ########.fr       */
+/*   Updated: 2021/05/31 15:11:44 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,19 @@ int	sort_three(t_swap *swap)
 			swap_stack(swap, swap->a);
 		return (rev_rotate_stack(swap, swap->a));
 	}
+	return (1);
+}
+
+int	sort_fifteen(t_swap *swap)
+{
+	while (swap->a->size != 3)
+	{
+		move_to_first_pos(swap, swap->a, get_smallest(swap->a));
+		push_stack(swap, swap->a);
+	}
+	if (!is_sorted(swap->a->list))
+		sort_three(swap);
+	while (swap->b->size != 0)
+		push_stack(swap, swap->b);
 	return (1);
 }

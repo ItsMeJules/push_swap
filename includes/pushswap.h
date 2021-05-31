@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:24:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/27 17:34:44 by jpeyron          ###   ########.fr       */
+/*   Updated: 2021/05/31 15:12:45 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	quit_prgm();
 t_selem	*get_val(t_list *elem, int clone);
 void	print_stacks(t_swap *swap);
 void	print_op(char *op, char id);
+int		get_index(t_list *list, int e);
 
 /*
 ** UTILS/initializer.c
@@ -61,6 +62,8 @@ t_swap	*init_swap(int ac, char **av);
 */
 int		get_mediane(t_stack *stack);
 int		is_sorted(t_list *list);
+int		get_smallest(t_stack *stack);
+void	move_to_first_pos(t_swap *swap, t_stack *stack, int number);
 
 /*
 ** OPERATIONS/swap_operations.c
@@ -74,5 +77,6 @@ int		rev_rotate_stack(t_swap *swap, t_stack *stack);
 ** SORT/small_stack_sort.c
 */
 int		sort_three(t_swap *swap);
+int		sort_fifteen(t_swap *swap);
 
 #endif
