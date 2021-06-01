@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:24:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/31 15:12:45 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/01 16:17:44 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,10 @@ int		rotate_stack(t_swap *swap, t_stack *stack);
 int		rev_rotate_stack(t_swap *swap, t_stack *stack);
 
 /*
-** SORT/small_stack_sort.c
+** SORT/stack_sort.c
 */
 int		sort_three(t_swap *swap);
 int		sort_fifteen(t_swap *swap);
+int		sort_a_lot(t_swap *swap);
 
 #endif
