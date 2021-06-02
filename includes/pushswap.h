@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:24:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/01 16:17:44 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/02 15:28:43 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,21 @@ typedef struct s_swap
 	t_stack	*a;
 	t_stack	*b;
 	int		nb_op;
+	int		chunks_nb;
 }				t_swap;
 
 typedef struct s_selem
 {
 	int	e;
 }				t_selem;
+
+typedef struct s_chunk
+{
+	int	min;
+	int	med;
+	int	max;
+	int	size;
+}				t_chunk;
 
 /*
 ** main.c
@@ -79,5 +88,12 @@ int		rev_rotate_stack(t_swap *swap, t_stack *stack);
 int		sort_three(t_swap *swap);
 int		sort_fifteen(t_swap *swap);
 int		sort_a_lot(t_swap *swap);
+
+/*
+** SORT/chunks.c
+*/
+t_list	*clone_list(t_list *list);
+t_list	*bubble_sort_numbers(t_list *list);
+t_chunk	*create_chunks(t_swap *swap, int chunk_size);
 
 #endif
