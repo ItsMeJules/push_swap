@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:29:59 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/31 15:24:24 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/03 16:15:25 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,23 @@ int	string_is_num(char *str)
 	return (1);
 }
 
-t_stack	*parse_stack(int ac, char **av)
+int	check_unique(int nb, t_list *list)
 {
-	t_stack	*stack;
+	while (list)
+	{
+		if (nb == get_val(list, 0)->e)
+			return (0);
+		list = list->next;
+	}
+	return (1);
+}
+
+
+void	parse_stack(int ac, char **av, t_stack *stack)
+{
 	t_selem	*selem;
 	int		i;
 
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		quit_prgm();
 	stack->list = NULL;
 	i = 0;
 	while (++i < ac)
@@ -46,9 +54,14 @@ t_stack	*parse_stack(int ac, char **av)
 		if (!selem)
 			quit_prgm();
 		selem->e = ft_atoi(av[i]);
+		if (!check_unique(selem->e, stack->list))
+		{
+			ft_lstclear(&stack->list, free);
+			free(stack);
+			quit_prgm();
+		}
 		ft_lstadd_back(&stack->list, ft_lstnew(selem));
 	}
-	return (stack);
 }
 
 t_swap	*init_swap(int ac, char **av)
@@ -58,10 +71,16 @@ t_swap	*init_swap(int ac, char **av)
 	swap = malloc(sizeof(t_swap));
 	if (!swap)
 		quit_prgm();
-	swap->a = parse_stack(ac, av);
+	swap->a = malloc(sizeof(t_stack));
+	if (!swap->a)
+		quit_prgm();
+	parse_stack(ac, av, swap->a);
 	swap->a->size = ft_lstsize(swap->a->list);
 	swap->a->id = 'a';
-	swap->b = parse_stack(0, NULL);
+	swap->b = malloc(sizeof(t_stack));
+	if (!swap->b)
+		quit_prgm();
+	parse_stack(0, NULL, swap->b);
 	swap->b->size = 0;
 	swap->b->id = 'b';
 	swap->nb_op = 0;

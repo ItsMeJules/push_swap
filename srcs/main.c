@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:57:20 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/02 15:44:50 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/03 13:26:59 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,10 @@ int	choose_algorithm(t_swap *swap)
 		return (sort_three(swap));
 	else if (swap->a->size <= 15)
 		return (sort_fifteen(swap));
+	else if (swap->a->size <= 100)
+		return (sort_big(swap, 30));
 	else
-		create_chunks(swap, 10);
+		return (sort_big(swap, 80));
 	return (1);
 }
 

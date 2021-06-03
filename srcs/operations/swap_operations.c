@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:57:10 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/31 15:24:11 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/03 17:50:14 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	swap_stack(t_swap *swap, t_stack *stack)
 	stack->list->next->content = stack->list->content;
 	stack->list->content = tmp;
 	print_op("s", stack->id);
-	print_stacks(swap);
+//	print_stacks(swap);
 	swap->nb_op++;
 	return (1);
 }
@@ -79,7 +79,7 @@ int	rev_rotate_stack(t_swap *swap, t_stack *stack)
 	ft_lstat(stack->list, stack->size - 2)->next = NULL;
 	ft_lstadd_front(&stack->list, new);
 	print_op("rr", stack->id);
-	print_stacks(swap);
+//	print_stacks(swap);
 	swap->nb_op++;
 	return (1);
 }

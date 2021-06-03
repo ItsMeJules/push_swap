@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:24:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/02 15:28:43 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/03 17:41:44 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int		get_index(t_list *list, int e);
 ** UTILS/initializer.c
 */
 int		string_is_num(char *str);
-t_stack	*parse_stack(int ac, char **av);
 t_swap	*init_swap(int ac, char **av);
 
 /*
@@ -72,6 +71,7 @@ t_swap	*init_swap(int ac, char **av);
 int		get_mediane(t_stack *stack);
 int		is_sorted(t_list *list);
 int		get_smallest(t_stack *stack);
+int		get_biggest(t_stack *stack);
 void	move_to_first_pos(t_swap *swap, t_stack *stack, int number);
 
 /*
@@ -87,7 +87,7 @@ int		rev_rotate_stack(t_swap *swap, t_stack *stack);
 */
 int		sort_three(t_swap *swap);
 int		sort_fifteen(t_swap *swap);
-int		sort_a_lot(t_swap *swap);
+int		sort_big(t_swap *swap, int chunk_size);
 
 /*
 ** SORT/chunks.c
@@ -95,5 +95,16 @@ int		sort_a_lot(t_swap *swap);
 t_list	*clone_list(t_list *list);
 t_list	*bubble_sort_numbers(t_list *list);
 t_chunk	*create_chunks(t_swap *swap, int chunk_size);
+
+/*
+** SORT/chunks_sorting.c
+*/
+void	push_chunk_vals(t_swap *swap, t_stack *a, t_chunk chunk);
+
+/*
+** SORT/big_sort_utils.c
+*/
+int		is_between(int min, int nb, int max);
+int		index_of_val(int min, int max, int top, t_stack *stack);
 
 #endif

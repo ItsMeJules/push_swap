@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   small_stack_sort.c                                 :+:      :+:    :+:   */
+/*   stack_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 12:05:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/05/31 15:11:44 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/03 16:35:28 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,23 @@ int	sort_fifteen(t_swap *swap)
 		sort_three(swap);
 	while (swap->b->size != 0)
 		push_stack(swap, swap->b);
+	return (1);
+}
+
+int	sort_big(t_swap *swap, int chunk_size)
+{
+	t_chunk	*chunks;	
+	int		i;
+
+	chunks = create_chunks(swap, chunk_size);
+	if (!chunks)
+		return (-1);
+	i = -1;
+	while (++i < swap->chunks_nb)
+	{
+		push_chunk_vals(swap, swap->a, swap->b, chunks[i]);
+		break ;
+	}
+	free(chunks);
 	return (1);
 }
