@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:24:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/03 17:41:44 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/04 13:51:32 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,12 +99,16 @@ t_chunk	*create_chunks(t_swap *swap, int chunk_size);
 /*
 ** SORT/chunks_sorting.c
 */
-void	push_chunk_vals(t_swap *swap, t_stack *a, t_chunk chunk);
+void	push_chunk_vals(t_swap *swap, t_stack *a, t_stack *b, t_chunk chunk);
+void	push_small_big_a(t_swap *swap);
+void	small_a_sort(t_swap *swap, t_chunk *chunk);
 
 /*
 ** SORT/big_sort_utils.c
 */
 int		is_between(int min, int nb, int max);
 int		index_of_val(int min, int max, int top, t_stack *stack);
+int		index_from(int val1, int val2, int top, t_stack *stack);
+void	rot_from_index(int idx_beg, int idx_end, t_swap *swap, t_stack *stack);
 
 #endif

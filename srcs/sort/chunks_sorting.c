@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:03:17 by jules             #+#    #+#             */
-/*   Updated: 2021/06/03 17:30:40 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/04 14:49:29 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	push_chunk_vals(t_swap *swap, t_stack *a, t_stack *b, t_chunk chunk)
 {
 	int		top;
 	int		bot;
-	(void)b;
 
 	while (b->size < chunk.size)
 	{
@@ -32,13 +31,48 @@ void	push_chunk_vals(t_swap *swap, t_stack *a, t_stack *b, t_chunk chunk)
 	}
 }
 
-void	push_back_a(t_swap *swap)
+void	push_small_big_a(t_swap *swap)
 {
-//	int	min;
-//	int	max;
+	int	idx_beg;
+	int	idx_end;
+	int	sml;
+	int	big;
+	int	rot_a;
 
 	while (swap->b->size != 0)
 	{
+		rot_a = 0;
+		sml = get_smallest(swap->b);
+		big = get_biggest(swap->b);
+		idx_beg = index_from(sml, big, 1, swap->b);
+		idx_end = index_from(sml, big, 0, swap->b);
+		if (idx_beg <= idx_end
+				&& get_val(ft_lstat(swap->b->list, idx_beg), 0)->e == sml)
+			rot_a = 1;
+		else if (idx_beg > idx_end && get_val(ft_lstat(
+				swap->b->list, swap->b->size - idx_end - 1), 0)->e == sml)
+			rot_a = 1;
+		rot_from_index(idx_beg, idx_end, swap, swap->b);
+		push_stack(swap, swap->b);
+		if (rot_a)
+			rotate_stack(swap, swap->a);
+	}
+}
 
+void	small_a_sort(t_swap *swap, t_chunk *chunk)
+{
+	t_list	*list;
+
+	if (chunk == NULL)
+		return ;
+	list = swap->a->list;
+	while (list)
+	{
+		if (get_val(list, 0)->e == chunk->max)
+		{
+			move_to_first_pos(swap, swap->a, chunk->max);
+			return ;
+		}
+		list = list->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:42:17 by jules             #+#    #+#             */
-/*   Updated: 2021/06/03 17:30:38 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/04 14:48:54 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,48 @@ int	index_of_val(int min, int max, int top, t_stack *stack)
 			i++;
 	}
 	return (i);
+}
+
+int	index_from(int val1, int val2, int top, t_stack *stack)
+{
+	int	i;
+	int	val;
+
+	if (!top)
+	{
+		i = stack->size - 1;
+		while (i != stack->size)
+		{
+			val = get_val(ft_lstat(stack->list, i), 0)->e;
+			if (val == val1 || val == val2)
+				return (stack->size - i - 1);
+			i--;
+		}
+	}
+	else
+	{
+		i = 0;
+		while (i < stack->size)
+		{
+			val = get_val(ft_lstat(stack->list, i), 0)->e;
+			if (val == val1 || val == val2)
+				return (i);
+			i++;
+		}
+	}
+	return (0);
+}
+
+void	rot_from_index(int idx_beg, int idx_end, t_swap *swap, t_stack *stack)
+{
+	if (idx_beg <= idx_end)
+	{
+		while (idx_beg-- > 0)
+			rotate_stack(swap, stack);
+	}
+	else
+	{
+		while (idx_end-- >= 0)
+			rev_rotate_stack(swap, stack);
+	}
 }
