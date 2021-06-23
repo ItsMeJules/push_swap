@@ -1,10 +1,10 @@
-NAME		=	push_swap	
+NAME		=	../checker	
 CC			=	gcc
 CFLAGS		=	-fsanitize=address -Wall -Wextra -Werror -g
 RM			=	rm -rf
 SRC_DIR 	= 	srcs
 SRC		 	=	$(notdir $(shell find $(SRC_DIR) -type f -name *.c))
-LIBFT_DIR	=	libft
+LIBFT_DIR	=	../libft
 OBJ_DIR		=	obj
 OBJ 		= 	$(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 COMP_LINUX	=	-L $(LIBFT_DIR) -lft -ltermcap

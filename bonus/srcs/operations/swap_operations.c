@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   swap_operations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/21 14:57:10 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/04 14:40:30 by jules            ###   ########.fr       */
+/*   Created: 2021/06/04 18:37:13 by jules             #+#    #+#             */
+/*   Updated: 2021/06/23 14:50:35 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "pushswap.h"
+#include "checker.h"
 
-int	swap_stack(t_swap *swap, t_stack *stack)
+int	swap_stack(t_stack *stack)
 {
 	void	*tmp;
 
@@ -21,35 +21,25 @@ int	swap_stack(t_swap *swap, t_stack *stack)
 	tmp = stack->list->next->content;
 	stack->list->next->content = stack->list->content;
 	stack->list->content = tmp;
-	print_op("s", stack->id);
-	print_stacks(swap);
-	swap->nb_op++;
 	return (1);
 }
 
-int	push_stack(t_swap *swap, t_stack *from_stack)
+int	push_stack(t_stack *src, t_stack *dest)
 {
-	t_stack	*to_stack;
 	t_list	*tmp;
 
-	if (from_stack->size == 0)
+	if (src->size == 0)
 		return (0);
-	tmp = from_stack->list;
-	to_stack = swap->a;
-	if (from_stack->id == 'a')
-		to_stack = swap->b;
-	ft_lstadd_front(&to_stack->list, ft_lstnew(get_val(from_stack->list, 1)));
-	from_stack->list = from_stack->list->next;
+	tmp = src->list;
+	ft_lstadd_front(&dest->list, ft_lstnew(get_val(src->list, 1)));
+	src->list = src->list->next;
 	ft_lstdelone(tmp, free);
-	from_stack->size--;
-	to_stack->size++;
-	print_op("p", to_stack->id);
-	print_stacks(swap);
-	swap->nb_op++;
+	src->size--;
+	dest->size++;
 	return (1);
 }
 
-int	rotate_stack(t_swap *swap, t_stack *stack)
+int	rotate_stack(t_stack *stack)
 {
 	t_list	*new;
 
@@ -60,13 +50,10 @@ int	rotate_stack(t_swap *swap, t_stack *stack)
 	new = stack->list;
 	stack->list = stack->list->next;
 	ft_lstdelone(new, free);
-	print_op("r", stack->id);
-	print_stacks(swap);
-	swap->nb_op++;
 	return (1);
 }
 
-int	rev_rotate_stack(t_swap *swap, t_stack *stack)
+int	rev_rotate_stack(t_stack *stack)
 {
 	t_list	*new;
 	t_list	*last;
@@ -78,8 +65,5 @@ int	rev_rotate_stack(t_swap *swap, t_stack *stack)
 	ft_lstdelone(last, free);
 	ft_lstat(stack->list, stack->size - 2)->next = NULL;
 	ft_lstadd_front(&stack->list, new);
-	print_op("rr", stack->id);
-	print_stacks(swap);
-	swap->nb_op++;
 	return (1);
 }

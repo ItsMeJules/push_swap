@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:24:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/04 13:51:32 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/04 19:11:08 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,13 @@ int		swap_stack(t_swap *swap, t_stack *stack);
 int		push_stack(t_swap *swap, t_stack *from_stack);
 int		rotate_stack(t_swap *swap, t_stack *stack);
 int		rev_rotate_stack(t_swap *swap, t_stack *stack);
+
+/*
+** OPERATIONS/swap_double_operations.c
+*/
+int	double_rotate(t_swap *swap);
+int	double_rev_rotate(t_swap *swap);
+int double_swap(t_swap *swap);
 
 /*
 ** SORT/stack_sort.c

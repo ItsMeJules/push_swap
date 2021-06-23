@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:03:17 by jules             #+#    #+#             */
-/*   Updated: 2021/06/04 14:49:29 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/04 17:17:50 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ void	small_a_sort(t_swap *swap, t_chunk *chunk)
 		if (get_val(list, 0)->e == chunk->max)
 		{
 			move_to_first_pos(swap, swap->a, chunk->max);
+			rotate_stack(swap, swap->a);
 			return ;
 		}
 		list = list->next;

@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 12:05:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/04 14:49:18 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/04 17:15:31 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	sort_big(t_swap *swap, int chunk_size)
 		if (i == 0)
 			small_a_sort(swap, NULL);
 		else
-			small_a_sort(swap, &chunks[i]);
+			small_a_sort(swap, &chunks[i - 1]);
 		push_small_big_a(swap);
 		val = get_val(ft_lstat(swap->a->list, 0), 0)->e;
 		while (val > chunks[i].min && val <= chunks[i].max)
