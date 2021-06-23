@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 19:01:56 by jules             #+#    #+#             */
-/*   Updated: 2021/06/16 18:48:52 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/23 15:12:41 by jules            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	do_op(char *op, t_stack *stacka, t_stack *stackb)
 		rev_rotate_stack(stackb);
 	else if (!ft_strcmp(op, "rrr"))
 		double_rev_rotate(stacka, stackb);
-	print_stacks(stacka, stackb);
+//	print_stacks(stacka, stackb);
 }
 
 void	read_ops(t_stack *stacka, t_stack *stackb)
