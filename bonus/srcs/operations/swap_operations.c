@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 18:37:13 by jules             #+#    #+#             */
-/*   Updated: 2021/06/23 14:50:35 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:03:30 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	rev_rotate_stack(t_stack *stack)
 {
 	t_list	*new;
 	t_list	*last;
-	
+
 	if (stack->size < 2)
 		return (0);
 	last = ft_lstlast(stack->list);

@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:52:21 by jules             #+#    #+#             */
-/*   Updated: 2021/06/23 15:10:47 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:02:48 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,6 @@ void	verif_and_free(t_stack *a, t_stack *b)
 	free(b);
 }
 
-void	print_stacks(t_stack *a, t_stack *b)
-{
-	long	i;
-
-	i = a->size;
-	if (b->size > i)
-		i = b->size;
-	while (i--)
-	{
-		if (i < a->size)
-			ft_putnbr_fd(get_val(ft_lstat(a->list, a->size - 1 - i),
-				0)->e, 1);
-		ft_putstr_fd("\t | ", 1);
-		if (i < b->size)
-			ft_putnbr_fd(get_val(ft_lstat(b->list, b->size - 1 - i),
-				0)->e, 1);
-		ft_putchar_fd('\n', 1);
-	}
-	ft_putchar_fd('\n', 1);
-}
-
 int	main(int ac, char **av)
 {
 	t_stack	*stacka;
@@ -62,7 +41,6 @@ int	main(int ac, char **av)
 	stackb->list = NULL;
 	parse_stack(ac, av, stacka);
 	read_ops(stacka, stackb);
-	//print_stacks(stacka, stackb);
 	verif_and_free(stacka, stackb);
 	return (1);
 }

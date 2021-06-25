@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/26 12:05:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/04 17:15:31 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:31:01 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	sort_three(t_swap *swap)
 	th = get_val(ft_lstat(swap->a->list, 2), 0)->e;
 	if (fi < th)
 	{
-		if (th > se)	
+		if (th > se)
 			return (swap_stack(swap, swap->a));
 		swap_stack(swap, swap->a);
 		rotate_stack(swap, swap->a);

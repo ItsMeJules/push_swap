@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 18:22:02 by jules             #+#    #+#             */
-/*   Updated: 2021/06/04 19:12:32 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:14:43 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	double_rev_rotate(t_swap *swap)
 int	double_swap(t_swap *swap)
 {
 	int	ret;
-	
+
 	ret = 0;
 	if (swap_stack(swap, swap->a) == 0)
 		ret--;

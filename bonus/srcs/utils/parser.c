@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 17:55:18 by jules             #+#    #+#             */
-/*   Updated: 2021/06/23 15:00:28 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:12:27 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,16 @@ int	check_unique(int nb, t_list *list)
 
 int	check_int(char *nbr)
 {
-	static char*	min = "-2147483648";
-	static char*	max = "2147483647";
-	int				len;
-	int				i;
+	static char	*min = "-2147483648";
+	static char	*max = "2147483647";
+	int			len;
+	int			i;
 
 	len = ft_strlen(nbr);
 	if (len == 11)
 	{
 		i = 1;
-		while (nbr[i] && nbr[i] == min[i]) 
+		while (nbr[i] && nbr[i] == min[i])
 			i++;
 		if (nbr[i] && nbr[i] > min[i])
 			return (0);
@@ -71,7 +71,7 @@ int	check_int(char *nbr)
 	else if (len == 10)
 	{
 		i = 0;
-		while (nbr[i] && nbr[i] == max[i]) 
+		while (nbr[i] && nbr[i] == max[i])
 			i++;
 		if (nbr[i] && nbr[i] > max[i])
 			return (0);

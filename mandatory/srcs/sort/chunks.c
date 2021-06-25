@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 14:31:22 by jules             #+#    #+#             */
-/*   Updated: 2021/06/03 13:27:26 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:28:39 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_list	*clone_list(t_list *list)
 	t_list	*clone;
 
 	clone = NULL;
-	while (list)	
+	while (list)
 	{
 		ft_lstadd_back(&clone, ft_lstnew(get_val(list, 1)));
 		list = list->next;
@@ -74,10 +74,10 @@ t_chunk	*create_chunks(t_swap *swap, int chunk_size)
 		if (i == swap->chunks_nb - 1)
 			chunks[i].size = swap->a->size % chunk_size;
 		chunks[i].min = get_val(ft_lstat(sorted, i * chunk_size), 0)->e;
-		chunks[i].med = get_val(ft_lstat(sorted, i * chunk_size +
-					(chunks[i].size / 2)), 0)->e;
-		chunks[i].max = get_val(ft_lstat(sorted, i * chunk_size +
-					chunks[i].size - 1), 0)->e;
+		chunks[i].med = get_val(ft_lstat(sorted, i * chunk_size
+					+ (chunks[i].size / 2)), 0)->e;
+		chunks[i].max = get_val(ft_lstat(sorted, i * chunk_size
+					+ chunks[i].size - 1), 0)->e;
 	}
 	ft_lstclear(&sorted, free);
 	return (chunks);

@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 13:59:56 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/03 16:43:51 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:38:55 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	is_sorted(t_list *list)
 	return (1);
 }
 
-int		get_smallest(t_stack *stack)
+int	get_smallest(t_stack *stack)
 {
 	t_list	*list;
 	int		nb;
@@ -56,7 +56,7 @@ int		get_smallest(t_stack *stack)
 	return (nb);
 }
 
-int		get_biggest(t_stack *stack)
+int	get_biggest(t_stack *stack)
 {
 	t_list	*list;
 	int		nb;

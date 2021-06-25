@@ -6,7 +6,7 @@
 /*   By: jpeyron <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/21 14:24:15 by jpeyron           #+#    #+#             */
-/*   Updated: 2021/06/04 19:11:08 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:40:01 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,8 @@ int		choose_algorithm(t_swap *swap);
 /*
 ** UTILS/utils.c
 */
-void	quit_prgm();
+void	quit_prgm(void);
 t_selem	*get_val(t_list *elem, int clone);
-void	print_stacks(t_swap *swap);
 void	print_op(char *op, char id);
 int		get_index(t_list *list, int e);
 
@@ -85,9 +84,9 @@ int		rev_rotate_stack(t_swap *swap, t_stack *stack);
 /*
 ** OPERATIONS/swap_double_operations.c
 */
-int	double_rotate(t_swap *swap);
-int	double_rev_rotate(t_swap *swap);
-int double_swap(t_swap *swap);
+int		double_rotate(t_swap *swap);
+int		double_rev_rotate(t_swap *swap);
+int		double_swap(t_swap *swap);
 
 /*
 ** SORT/stack_sort.c

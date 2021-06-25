@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:42:17 by jules             #+#    #+#             */
-/*   Updated: 2021/06/04 14:48:54 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:37:06 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,14 @@ int	index_of_val(int min, int max, int top, t_stack *stack)
 int	index_from(int val1, int val2, int top, t_stack *stack)
 {
 	int	i;
-	int	val;
 
 	if (!top)
 	{
 		i = stack->size - 1;
 		while (i != stack->size)
 		{
-			val = get_val(ft_lstat(stack->list, i), 0)->e;
-			if (val == val1 || val == val2)
+			if (get_val(ft_lstat(stack->list, i), 0)->e == val1
+				|| get_val(ft_lstat(stack->list, i), 0)->e == val2)
 				return (stack->size - i - 1);
 			i--;
 		}
@@ -57,8 +56,8 @@ int	index_from(int val1, int val2, int top, t_stack *stack)
 		i = 0;
 		while (i < stack->size)
 		{
-			val = get_val(ft_lstat(stack->list, i), 0)->e;
-			if (val == val1 || val == val2)
+			if (get_val(ft_lstat(stack->list, i), 0)->e == val1
+				|| get_val(ft_lstat(stack->list, i), 0)->e == val2)
 				return (i);
 			i++;
 		}

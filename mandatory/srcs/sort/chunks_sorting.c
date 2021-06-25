@@ -6,7 +6,7 @@
 /*   By: jules <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/03 12:03:17 by jules             #+#    #+#             */
-/*   Updated: 2021/06/04 17:17:50 by jules            ###   ########.fr       */
+/*   Updated: 2021/06/25 15:30:19 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ void	push_small_big_a(t_swap *swap)
 		idx_beg = index_from(sml, big, 1, swap->b);
 		idx_end = index_from(sml, big, 0, swap->b);
 		if (idx_beg <= idx_end
-				&& get_val(ft_lstat(swap->b->list, idx_beg), 0)->e == sml)
+			&& get_val(ft_lstat(swap->b->list, idx_beg), 0)->e == sml)
 			rot_a = 1;
-		else if (idx_beg > idx_end && get_val(ft_lstat(
-				swap->b->list, swap->b->size - idx_end - 1), 0)->e == sml)
+		else if (idx_beg > idx_end && get_val(
+				ft_lstat(swap->b->list,
+					swap->b->size - idx_end - 1), 0)->e == sml)
 			rot_a = 1;
 		rot_from_index(idx_beg, idx_end, swap, swap->b);
 		push_stack(swap, swap->b);
