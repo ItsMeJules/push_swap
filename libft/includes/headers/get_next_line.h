@@ -6,7 +6,7 @@
 /*   By: tvachera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:43:42 by tvachera          #+#    #+#             */
-/*   Updated: 2021/05/19 15:08:56 by jpeyron          ###   ########.fr       */
+/*   Updated: 2021/09/27 13:44:29 by jpeyron          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 typedef struct s_file
 {
 	int				fd;
-	char			buff[BUFFER_SIZE > 0 ? BUFFER_SIZE : 1];
+	char			buff[BUFFER_SIZE];
 	struct s_file	*next;
 }					t_file;
 
